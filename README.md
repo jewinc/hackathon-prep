@@ -17,22 +17,22 @@ La branche `main` est crée par défaut et doit contenir une version fonctionnel
 HEAD est le pointeur vers un commit, par défaut c'est le commit le plus récent de la branche.
 
 
-**Contribuer à Git avec les différents scénarios :**
+## **Contribuer à Git avec les différents scénarios :**
 
 **Toujours être à jour avant de faire vos modifications sinon ça complique les choses.**
 
-Se mettre à jour avec le répertoire distant : 
+### Se mettre à jour avec le répertoire distant : 
 - git fetch origin
 - git pull origin <branch-name>
 
-Commandes utiles : 
+### Commandes utiles : 
 - git branch (permet de voir toutes les branches)
 - git branch -d <branch-name> (supprime une branche)
 - git log (liste tous les commits d'une branche avec leur hash)
 - git status (liste tous les fichiers modifiers a ajouté avec git add)
 - git restore --staged <file-path> (annule un fichier qui a été ajouter avec git add)
 
-Contribuer au projet : 
+### Contribuer au projet : 
     - Créer une branche : git checkout -b <branch-name> | Charger une branche déjà existante : git checkout <branch-name>
     - Faire des modifications : modifier le fichier git_tuto.py
     - Ajouter les modifs à soumettre : git add <file_path>|. (pour tous les fichiers modifiés)
@@ -48,7 +48,7 @@ Contribuer au projet :
         - Mettre à jour le repo distant : git push origin <target-branch>
 
 
-Gérer les conflits :
+### Gérer les conflits :
 
 Un conflit peut arriver si une des deux branches divergent (nombre de commit différent) et que des fichiers ont été modifié dans les deux branches.
 Exemple : si deux personnes différentes travaillent sur le même fichier.
@@ -64,3 +64,10 @@ Simulons un conflit (on modifiera git_tuto.py) :
 - On doit résoudre les conflits (dans VS code, il y a une interface dédié= merge editor), n'oubliez pas de sauvegarder le fichier (CTRL+S) une fois les conflits gérés.
 - Une fois les conflits résolus : git add . et git rebase --continue
 - Pour cette démo, vous pouvez nettoyer : git reset --hard HEAD~2 et git branch -d <conflict>
+
+### Détruire un commit : 
+On l'a juste au dessus, on peut annuler des commit de l'historique d'une branche avec git reset.
+Quelques arguments important : git reset --hard|--soft HEAD^|HEAD~x
+--hard si vous ne voulez pas conserver les modifications après avoir enlevé le commit, --soft si on vous voulez les garder
+HEAD : pointeur du commit actuel, ^ c'est le commit juste avant, ~x c'est le commit numéro x avant HEAD
+On peut aussi faire git reset <commit-hash>, cela annule les commits jusqu'a atteindre le commit en question.
