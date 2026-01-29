@@ -37,3 +37,4 @@ Gérer les conflits :
 
 
 
+conflict
