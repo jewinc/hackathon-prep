@@ -71,3 +71,20 @@ Quelques arguments important : git reset --hard|--soft HEAD^|HEAD~x
 --hard si vous ne voulez pas conserver les modifications après avoir enlevé le commit, --soft si on vous voulez les garder
 HEAD : pointeur du commit actuel, ^ c'est le commit juste avant, ~x c'est le commit numéro x avant HEAD
 On peut aussi faire git reset <commit-hash>, cela annule les commits jusqu'a atteindre le commit en question.
+
+
+
+# Python
+
+Une bonne pratique avant de commencer à développer est de créer un environnement python, cela évite de polluer votre interpréteur python gobale à la machine.
+
+Pour ce faire, assurez vous d'avoir au moins python d'installer : 
+- Aller dans le répertoire ou vous souhaitez créer l'environnement
+- Créer l'environnement : python|python3 -m venv .venv
+- Activer l'environnement à votre terminal : source .venv/bin/activate (sur linux) | .venv/Scripts/activate (sur windows)
+- Installer les packages que vous voulez : pip install -r requirements.txt
+
+Si vous êtes sur VS Code et linux (à voir si ça fonctionne pareil avec d'autre éditeurs), vous pouvez utiliser cet environnement comme kernel jupyter pour les notebooks avec ces étapes : 
+- pip install ipykernel
+- python -m ipykernel install --user --name=venv --display-name "Nom du venv"
+- ls ~/Library/Jupyter/kernels/
