@@ -54,9 +54,8 @@ Un conflit peut arriver si une des deux branches divergent (nombre de commit dif
 Exemple : si deux personnes différentes travaillent sur le même fichier.
 
 Simulons un conflit (on modifiera git_tuto.py) :
-- Dans la branche <main> : ajouter un commit (ajoutez print("c1"), git add ., git commit)
-- Crée une nouvelle branche <conflict> : ajouter un commit (ajoutez print("c1 prime"), git add ., git commit)
-- Revenez à <main> : ajouter un autre commit (ajoutez print("c2"), git add ., git commit)
+- Crée une nouvelle branche <conflict> et ajouter un commit (ajoutez print("c1 prime"), git add ., git commit)
+- Dans la branche <main> : ajouter deux commit (ajoutez print("c1") et print("c2), git add ., git commit)
 - On se retrouve dans cette sitution : 
   - <main> : c -> c+1 -> c+2
   - <conflict> : c -> c+1
