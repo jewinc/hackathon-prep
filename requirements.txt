@@ -1,0 +1,14 @@
+# Snowflake
+snowflake-
+snowflake
+snowflake-snowpark-python[pandas]
+snowflake-connector-python[pandas]
+PyPDF2
+pdfplumber
+pdf2image
+paddlepaddle
+paddleocr
+Pillow
+numpy
+pandas
+matplotlib

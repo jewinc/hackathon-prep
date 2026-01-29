@@ -88,3 +88,11 @@ Si vous êtes sur VS Code et linux (à voir si ça fonctionne pareil avec d'autr
 - pip install ipykernel
 - python -m ipykernel install --user --name=venv --display-name "Nom du venv"
 - ls ~/Library/Jupyter/kernels/
+
+
+# Snowflake 
+
+Pour faire tourner le notebook et les fichiers python de démo, il faudra copier et configurer le fichier .env-template.
+Vous trouverez l'account id dans l'url de l'interface web (ex: https://app.snowflake.com/ggspbsl/tl37311/#/homepage, a pour account-idf : ggspbsl-tl37311)
+Le User et Password correspondent aux identifiants utilisés pour vous connecter à l'interface web.
+Quelques exemple de ce qui est possible de faire se trouve dans le notebook demo_snowflake.ipynb.
