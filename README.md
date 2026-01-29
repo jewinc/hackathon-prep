@@ -18,22 +18,38 @@ HEAD est le pointeur vers un commit, par défaut c'est le commit le plus récent
 
 
 **Contribuer à Git avec les différents scénarios :**
-    
+
 **Toujours être à jour avant de faire vos modifications sinon ça complique les choses.**
 
 Se mettre à jour avec le répertoire distant : 
 - git fetch origin
 - git pull origin <branch-name>
 
+Commandes utiles : 
+- git branch (permet de voir toutes les branches)
+- git branch -d <branch-name> (supprime une branche)
+- git log (liste tous les commits d'une branche avec leur hash)
 
 Contribuer au projet : 
     - Créer une branche : git checkout -b <branch-name> | Charger une branche déjà existante : git checkout <branch-name>
     - Faire des modifications : modifier le fichier git_tuto.py
     - Ajouter les modifs à soumettre : git add <file_path>|. (pour tous les fichiers modifiés)
     - Ajouter à l'historique de la branche : git commmit -m "msg"
-    - Envoyer les modifications au répertoire distant : git push <dist-repo-name> <branch-name>, dist-repo-name=origin (par défaut)
+    - Deux choix ici pour rappatrier ces modifs vers la branche principale : 
+      - Avec les pull request (meilleur pratique car permet les reviews, formattage etc... si c'est implémenté)
+        - Envoyer les modifications au répertoire distant : git push <dist-repo-name> <branch-name>, dist-repo-name=origin (par défaut), j'utiliserais origin par la suite
+        - Faire une pull request depuis l'interface WEB de Github : <target-branch> <- <current-branch>
+      - Avec Rebase (merge ou squash possible aussi), <target-branch> est la branche principale, <current-branch> est la branche avec les modifications :
+        - Aller à la branch cible : git checkout <target-branch>
+        - Mettre à jour la branch : git pull origin <target-branch>
+        - Rappatrier les modifs : git rebase <current-branch>
+        - Mettre à jour le repo distant : git push origin <target-branch>
+
 
 Gérer les conflits :
+
+Un conflit peut arriver si deux commits différent modifient le(s) même fichier(s) ET qu'il s'agit de la même position dans l'historique.
+Exemple : si deux personnes différentes travaillent sur le même fichier.
 
 
 
