@@ -29,6 +29,8 @@ Commandes utiles :
 - git branch (permet de voir toutes les branches)
 - git branch -d <branch-name> (supprime une branche)
 - git log (liste tous les commits d'une branche avec leur hash)
+- git status (liste tous les fichiers modifiers a ajouté avec git add)
+- git restore --staged <file-path> (annule un fichier qui a été ajouter avec git add)
 
 Contribuer au projet : 
     - Créer une branche : git checkout -b <branch-name> | Charger une branche déjà existante : git checkout <branch-name>
@@ -48,9 +50,18 @@ Contribuer au projet :
 
 Gérer les conflits :
 
-Un conflit peut arriver si deux commits différent modifient le(s) même fichier(s) ET qu'il s'agit de la même position dans l'historique.
+Un conflit peut arriver si une des deux branches divergent (nombre de commit différent) et que des fichiers ont été modifié dans les deux branches.
 Exemple : si deux personnes différentes travaillent sur le même fichier.
 
-
-
-conflict
+Simulons un conflit (on modifiera git_tuto.py) :
+- Dans la branche <main> : ajouter un commit (ajoutez print("c1"), git add ., git commit)
+- Crée une nouvelle branche <conflict> : ajouter un commit (ajoutez print("c1 prime"), git add ., git commit)
+- Revenez à <main> : ajouter un autre commit (ajoutez print("c2"), git add ., git commit)
+- On se retrouve dans cette sitution : 
+  - <main> : c -> c+1 -> c+2
+  - <conflict> : c -> c+1
+- On va vouloir rappatrier les modifications de la branche <conflict> à main mais les branches divergent et le même fichier a été modifié
+- On rappatrie : git rebase <conflict>
+- On doit résoudre les conflits (dans VS code, il y a une interface dédié= merge editor), n'oubliez pas de sauvegarder le fichier (CTRL+S) une fois les conflits gérés.
+- Une fois les conflits résolus : git add . et git rebase --continue
+- Pour cette démo, vous pouvez nettoyer : git reset --hard HEAD~2 et git branch -d <conflict>
